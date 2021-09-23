@@ -31,10 +31,7 @@ public class TelaConfig extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_config);
 
-       /* SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-        editor.putString("coordenadas", "Elena");
-        //editor.putInt("idName", 12);
-        editor.apply();*/
+
 
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         String coordenadasSave = prefs.getString("coordenadas", "notDefined");
@@ -42,10 +39,7 @@ public class TelaConfig extends AppCompatActivity {
         String OrientacaodoMapaSave = prefs.getString("OrientacaodoMapa", "notDefined");
         String TipodoMapaSave = prefs.getString("TipodoMapa", "notDefined");
         Boolean trafegoSave = prefs.getBoolean("trafego", false);
-        //int idName = prefs.getInt("idName", 0);
 
-        ////TextView agora = findViewById(R.id.textView);
-        //agora.setText(coordenadasSave);
 
         Spinner spinnercoordenadas = findViewById(R.id.spinnercoordenadas);
 
@@ -111,20 +105,6 @@ public class TelaConfig extends AppCompatActivity {
 
         // on click
 
-       /* Spinner spinnercoordenadas = findViewById(R.id.spinnercoordenadas);
-
-        Spinner spinnervelocidade = findViewById(R.id.spinnervelocidade);
-
-        Spinner spinnerOrientacaodoMapa = findViewById(R.id.spinnerMapa);
-
-        Spinner spinnerTipodoMapa = findViewById(R.id.spinnerTipodoMapa);
-
-        String coordenadasSave = prefs.getString("coordenadas", "notDefined");
-        String velocidadeSave = prefs.getString("velocidade", "notDefined");
-        String OrientacaodoMapaSave = prefs.getString("OrientacaodoMapa", "notDefined");
-        String TipodoMapaSave = prefs.getString("TipodoMapa", "notDefined");
-        Boolean trafegoSave = prefs.getBoolean("trafego", false);
-        */
         // on click spinnercoordenadas
         spinnercoordenadas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

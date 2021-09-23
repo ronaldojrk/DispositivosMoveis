@@ -1,3 +1,44 @@
 <resources>
     <string name="app_name">N1DispositivosMoveis</string>
+
+    <string name="tela_configTitulo">Configurar</string>
+    <string name="tela_CreditoTitulo"></string>
+    <string name="titulovazio"></string>
+
+
+    //main
+    <string name="text_TituloMain">NAVITRON</string>
+    <string name="btn_Config">Config</string>
+    <string name="btn_Navegacao">Tela de Navegação</string>
+    <string name="btn_Historico">Tela de Histórico</string>
+    <string name="btn_Gnss">Tela do GNSS</string>
+    <string name="btn_Credito">Tela de Créditos</string>
+
+    //config
+
+    <string name="text_TituloConfig">Configurar</string>
+    <string name="textSwitch">Informações de tráfego</string>
+    <string name="btn_VoltarConfig">Voltar</string>
+
+    //credito
+
+    <string name="text_TituloCredito">Créditos</string>
+    <string name="text_Creditos">Programa de localização onde o usuario pode ver um mapa com seu
+        histórico denavegação isso através do sistema GNSS(Global Navigation Satellite System) que
+        permite queequipamentos forneçam, através da indicação de coordenadas, a localização de
+        determinadoponto na superfície terrestre.</string>
+    <string name="text_Desenvolvedores">Desenvolvedores:Adson Mozart, Felipe Verde,
+        Ronaldo José, Wagner Cafezeiro</string>
+    <string name="btn_VoltarCredito">Voltar</string>
+
+    //gnss
+
+    <string name="abc"></string>
+
+    //navegação
+
+    <string name="abcd"></string>
+
+
+    <string name="btn_Voltar">Voltar</string>
 </resources>

@@ -2,6 +2,7 @@ package com.example.n1dispositivosmoveis;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonConfig = findViewById(R.id.buttonConfig);
         Button buttonCredi = findViewById(R.id.buttonCredi);
         Button buttonGNSS = findViewById(R.id.buttonGNSS);
-        //Button buttonHis = findViewById(R.id.buttonHis);
+        Button buttonHis = findViewById(R.id.buttonHis);
         Button buttonNav = findViewById(R.id.buttonNav);
 
         buttonConfig.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +42,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),TelaGNSS.class);
+                startActivity(intent);
+                // finish();
+            }
+        });
+
+        buttonNav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),TelaNavegacao.class);
+                startActivity(intent);
+                // finish();
+            }
+        });
+
+
+        buttonHis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),TelaHis.class);
                 startActivity(intent);
                 // finish();
             }
