@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.N1DispositivosMoveis">
-        <activity android:name=".TelaConfig"></activity>
+        <activity
+            android:name=".TelaGNSS"
+            android:exported="true" />
+        <activity
+            android:name=".TelaNavegacao"
+            android:exported="true" />
+        <activity
+            android:name=".TelaCredito"
+            android:exported="true" />
+        <activity android:name=".TelaConfig" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

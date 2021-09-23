@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         teste2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),TelaConfig.class);
+                Intent intent = new Intent(getApplicationContext(),TelaCredito.class);
                 startActivity(intent);
                 // finish();
             }
