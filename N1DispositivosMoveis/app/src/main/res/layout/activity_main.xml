@@ -6,26 +6,90 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="452dp"
+        android:text="Config"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button2"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="452dp"
+        android:text="Tela de Navegação"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.769"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="352dp"
+        android:text="Tela de Histórico"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="352dp"
+        android:text="Tela do GNSS"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.769"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button5"
         android:layout_width="192dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="52dp"
-        android:text="Config"
+        android:layout_marginBottom="264dp"
+        android:text="Tela de Créditos"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
+        android:layout_height="69dp"
+        android:gravity="center"
+        android:textSize="36dp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:text="NAVITRON"
+        android:background="#0000ff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        tools:layout_editor_absoluteY="42dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="308dp"
+        android:layout_height="264dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.66"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5"
+        app:srcCompat="@drawable/inserir_um_subtitulo16" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
