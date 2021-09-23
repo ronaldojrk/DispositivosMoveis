@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/Dispositivosmoveis/DispositivosMoveis/N1DispositivosMoveis/app/src/main/res/layout/activity_main.xml" value="0.34782608695652173" />
         <entry key="..\:/Dispositivosmoveis/DispositivosMoveis/N1DispositivosMoveis/app/src/main/res/layout/activity_tela_config.xml" value="0.34782608695652173" />
         <entry key="..\:/Dispositivosmoveis/DispositivosMoveis/N1DispositivosMoveis/app/src/main/res/layout/activity_tela_credito.xml" value="0.2597402597402597" />
         <entry key="..\:/Dispositivosmoveis/DispositivosMoveis/N1DispositivosMoveis/app/src/main/res/layout/activity_tela_gnss.xml" value="0.34782608695652173" />
         <entry key="..\:/Dispositivosmoveis/DispositivosMoveis/N1DispositivosMoveis/app/src/main/res/layout/activity_tela_navegacao.xml" value="0.34782608695652173" />
+=======
+        <entry key="..\:/Users/Mozart/Documents/Adson Mozart/Projetos/DispositivosMoveis/N1DispositivosMoveis/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
+>>>>>>> telainicial
       </map>
     </option>
   </component>
