@@ -14,9 +14,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button teste2 = findViewById(R.id.button2);
+        Button buttonConfig = findViewById(R.id.buttonConfig);
+        Button buttonCredi = findViewById(R.id.buttonCredi);
+        Button buttonGNSS = findViewById(R.id.buttonGNSS);
+        //Button buttonHis = findViewById(R.id.buttonHis);
+        Button buttonNav = findViewById(R.id.buttonNav);
 
-        teste2.setOnClickListener(new View.OnClickListener() {
+        buttonConfig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),TelaConfig.class);
+                startActivity(intent);
+                // finish();
+            }
+        });
+
+        buttonCredi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),TelaCredito.class);
@@ -24,5 +37,14 @@ public class MainActivity extends AppCompatActivity {
                 // finish();
             }
         });
+        buttonGNSS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),TelaGNSS.class);
+                startActivity(intent);
+                // finish();
+            }
+        });
+
     }
 }
