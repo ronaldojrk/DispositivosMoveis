@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         buttonNav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),TelaNavegacao.class);
+                Intent intent = new Intent(getApplicationContext(),MapsActivity.class);
                 startActivity(intent);
                 // finish();
             }
