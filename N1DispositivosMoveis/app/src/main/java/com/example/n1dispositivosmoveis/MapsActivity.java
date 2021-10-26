@@ -18,22 +18,40 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.n1dispositivosmoveis.databinding.ActivityMapsBinding;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
 
 public class MapsActivity extends FragmentActivity implements  OnMapReadyCallback , GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener{
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
     private static final int REQUEST_LOCATION = 1;
+    private static final int REQUEST_LAST_LOCATION = 1;
+    private static final int REQUEST_LOCATION_UPDATES = 2;
+
+    private FusedLocationProviderClient mFusedLocationProviderClient;
+    private LocationRequest mLocationRequest;
+    private LocationCallback mLocationCallback;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -61,9 +79,20 @@ public class MapsActivity extends FragmentActivity implements  OnMapReadyCallbac
         String TipodoMapaSave = prefs.getString("TipodoMapa", "notDefined");
         Boolean trafegoSave = prefs.getBoolean("trafego", false);
 
-        onMyLocationButtonClick();
 
+        //onMyLocationButtonClick();
+         /*  Location myloca= mMap.getMyLocation();
         // Define tipo do mapa
+        //myloca.getLatitude()
+        LatLng brasil = new LatLng(myloca.getLatitude(), myloca.getLongitude());
+        googleMap.addMarker(new MarkerOptions().position(brasil)
+
+                .position(brasil)
+                .title("Marker in Igreja do Bomfim"))
+                .setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+
+
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(brasil));*/
 
 
         String [] TipodoMapa = {"Vetorial","Imagem de Satélite",};
@@ -94,8 +123,8 @@ public class MapsActivity extends FragmentActivity implements  OnMapReadyCallbac
         mMap.setTrafficEnabled(trafegoSave);
 
 
-
-
+        mMap.setMinZoomPreference(14.0f);
+        mMap.setMaxZoomPreference(15.0f);
 
         // Configura elementos da interface gráfica
         UiSettings mapUI = mMap.getUiSettings();
@@ -107,10 +136,59 @@ public class MapsActivity extends FragmentActivity implements  OnMapReadyCallbac
         mapUI.setZoomControlsEnabled(true);
 
         // habilita camada de localização (MyLocation)
-        habilitaMyLocation();
+        //habilitaMyLocation();
+        startLocationUpdates();
 
 
 
+    }
+
+    private void startLocationUpdates() {
+        // Se a app já possui a permissão, ativa a calamada de localização
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION) ==
+                PackageManager.PERMISSION_GRANTED) {
+            // A permissão foi dada
+            // Cria o cliente FusedLocation
+            mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+            // Configura solicitações de localização
+            mLocationRequest = LocationRequest.create();
+            mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+            mLocationRequest.setInterval(5*1000);
+            mLocationRequest.setFastestInterval(1*1000);
+            // Programa o evento a ser chamado em intervalo regulares de tempo
+            mLocationCallback = new LocationCallback() {
+                @Override
+                public void onLocationResult(LocationResult locationResult) {
+                    super.onLocationResult(locationResult);
+                    mMap.clear();
+                    Location location=locationResult.getLastLocation();
+                    LatLng brasil = new LatLng(location.getLatitude(), location.getLongitude());
+                    mMap.addMarker(new MarkerOptions().position(brasil)
+
+                            .position(brasil)
+                            .title("atual"))
+                            .setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+
+
+                   // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(brasil, 15.0f));
+                    //mMap.moveCamera(brasil);
+
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(brasil));
+
+
+
+
+                }
+            };
+            //
+            mFusedLocationProviderClient.requestLocationUpdates(mLocationRequest,mLocationCallback,null);
+        } else {
+            // Solicite a permissão
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    REQUEST_LOCATION_UPDATES);
+        }
     }
 
     private void habilitaMyLocation() {
@@ -162,11 +240,25 @@ public class MapsActivity extends FragmentActivity implements  OnMapReadyCallbac
 
     @Override
     public void onMyLocationClick(@NonNull Location location) {
+
         Toast.makeText(this, "Localização Atual (Lat,Lon,Alt):\n"+
                 "("+location.getLatitude()+","+location.getLongitude()+","
                 +location.getAltitude()+")", Toast.LENGTH_LONG).show();
         LatLng mylocali = new LatLng(location.getLatitude(), location.getLongitude());
+
+        mMap.addMarker(new MarkerOptions().position(mylocali)
+
+                .position(mylocali)
+                .title("Minha localização"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mylocali, 15.0f));
+
+
+        // Define tipo do mapa
+        //myloca.getLatitude()
+
+
+
+
 
 
     }
