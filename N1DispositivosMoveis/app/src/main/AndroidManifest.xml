@@ -36,27 +36,34 @@
 
         <activity
             android:name=".MapsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_maps"></activity>
         <activity
             android:name=".TelaHis"
+            android:screenOrientation="portrait"
             android:label="@string/titulovazio" />
         <activity
             android:name=".TelaGNSS"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:label="@string/titulovazio" />
         <activity
             android:name=".TelaNavegacao"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:label="@string/titulovazio" />
         <activity
             android:name=".TelaCredito"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:label="@string/tela_CreditoTitulo" />
         <activity
             android:name=".TelaConfig"
+            android:screenOrientation="portrait"
             android:label="@string/titulovazio" />
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:label="@string/titulovazio">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
