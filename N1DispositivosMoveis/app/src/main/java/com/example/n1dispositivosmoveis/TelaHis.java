@@ -8,6 +8,8 @@ import android.widget.Button;
 
 public class TelaHis extends AppCompatActivity {
 
+    private BancoDados banco;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,7 +18,7 @@ public class TelaHis extends AppCompatActivity {
         Button btnVoltar = findViewById(R.id.btnVoltarHis);
 
         //btnVoltar
-
+        banco.addLocalizacao();
         //dasdas
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
