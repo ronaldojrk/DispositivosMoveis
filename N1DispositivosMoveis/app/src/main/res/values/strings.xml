@@ -33,7 +33,9 @@
 
     //gnss
 
-    <string name="abc"></string>
+    <string name="text_TituloSubMain">SATELITE</string>
+    <string name="btn_GNSSVoltar">Voltar</string>
+    <string name="btn_GNSSSatelite">Satelite</string>
 
     //navegação
 
@@ -42,5 +44,15 @@
 
     <string name="btn_Voltar">Voltar</string>
     <string name="title_activity_maps">Map</string>
+<<<<<<< HEAD
     <string name="title_activity_maps2">Map</string>
+=======
+    <string name="voltar">Voltar</string>
+
+    //locationManager
+
+    <string name="tv_gnssInfo">Info GNSS</string>
+    <string name="tv_locationInfo">Info Location</string>
+
+>>>>>>> TelaGNSS
 </resources>
