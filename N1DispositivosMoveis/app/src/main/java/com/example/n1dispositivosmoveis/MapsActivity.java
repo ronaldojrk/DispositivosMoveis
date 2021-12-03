@@ -1,6 +1,7 @@
 package com.example.n1dispositivosmoveis;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
@@ -15,6 +16,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -46,6 +48,9 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class MapsActivity extends FragmentActivity implements  OnMapReadyCallback{
 
@@ -94,6 +99,8 @@ public class MapsActivity extends FragmentActivity implements  OnMapReadyCallbac
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         String TipodoMapaSave = prefs.getString("TipodoMapa", "notDefined");
         Boolean trafegoSave = prefs.getBoolean("trafego", false);
+
+
         String OrientacaodoMapaSave = prefs.getString("OrientacaodoMapa", "notDefined");
 
         if (TipodoMapaSave == "notDefined") {
@@ -201,6 +208,17 @@ public class MapsActivity extends FragmentActivity implements  OnMapReadyCallbac
 
                     marker.setRotation(location.getBearing());
 
+                    SharedPreferences prefs = getSharedPreferences("projeto", MODE_PRIVATE);
+                    Boolean historico = prefs.getBoolean("historico", true);
+
+                    if(historico){
+                        setbanco(location);
+                    }else{
+
+                    }
+
+
+
                     Circle circle = mMap.addCircle(new CircleOptions()
                             .center(brasil)
                             .radius(700)
@@ -275,6 +293,21 @@ public class MapsActivity extends FragmentActivity implements  OnMapReadyCallbac
         String status="";
         status+=getLatLong(location)+getVelocidade(location);
         text.setText(status);
+    }
+
+
+    private void setbanco(Location location){
+
+        LocalizacaoDAO crud = new LocalizacaoDAO(getBaseContext());
+
+        SimpleDateFormat formataData = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        Date data = new Date();
+
+        String teste =  formataData.format(data);
+        Localizacao  loca=new Localizacao(1,""+location.getLatitude(), ""+location.getLongitude(),teste,""+location.getSpeed());
+        String resultado;
+        resultado = crud.insereDado(loca);
+
     }
 
 

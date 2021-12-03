@@ -7,29 +7,29 @@ import java.sql.Date;
 public class Localizacao {
 
     int codigo;
-    double latitude;
-    double longitude;
+    String latitude;
+    String longitude;
     String data;
-    double velocidade;
+    String velocidade;
 
     /*public Localizacao() {
 
     }*/
 
-    public Localizacao(int _codigo, double _latitude, double _longitude, String _data, double _velocidade) {
-        this.codigo = _codigo;
-        this.latitude = _latitude;
-        this.longitude = _longitude;
-        this.data = _data;
-        this.velocidade = _velocidade;
+    public Localizacao(int codigo, String latitude, String longitude, String data, String velocidade) {
+        this.codigo = codigo;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.data = data;
+        this.velocidade = velocidade;
     }
 
-    public Localizacao(double _latitude, double _longitude, String _data,  double _velocidade) {
+   /* public Localizacao(double _latitude, double _longitude, String _data,  double _velocidade) {
         this.latitude = _latitude;
         this.longitude = _longitude;
         this.data = _data;
         this.velocidade = _velocidade;
-    }
+    }*/
 
 
     //==========================================
@@ -41,19 +41,19 @@ public class Localizacao {
         this.codigo = codigo;
     }
 
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 
@@ -65,11 +65,11 @@ public class Localizacao {
         this.data = data;
     }
 
-    public double getVelocidade() {
+    public String getVelocidade() {
         return velocidade;
     }
 
-    public void setVelocidade(double velocidade) {
+    public void setVelocidade(String velocidade) {
         this.velocidade = velocidade;
     }
 }

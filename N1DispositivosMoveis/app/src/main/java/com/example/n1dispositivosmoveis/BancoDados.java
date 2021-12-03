@@ -10,47 +10,57 @@ import androidx.annotation.Nullable;
 
 public class BancoDados extends SQLiteOpenHelper {
 
-    SQLiteDatabase db;
 
-    private static final int VERSAO = 1;
-    private static final String BANCO_LOCALIZACAO = "bd_localizacao";
+    public static final int VERSAO = 1;
+    public static final String BANCO_LOCALIZACAO = "banco.db";
 
-    private static final String TABELA_LOCALIZACAO = "tb_localizacao";
+    public static final String TABELA = "loca";
 
-    private static final String COLUNA_CODIGO = "codigo";
-    private static final String COLUNA_LATITUDE = "latitude";
-    private static final String COLUNA_LONGITUDE = "longitude";
-    private static final String COLUNA_DATA = "data";
-    private static final String COLUNA_VELOCIDADE = "velocidade";
+    public static final String CODIGO = "_id";
+    public static final String LATITUDE = "latitude";
+    public static final String LONGITUDE = "longitude";
+    public static final String DATA = "dataagora";
+    public static final String VELOCIDADE = "velocidade";
 
-    public BancoDados(@Nullable Context context) {
+    public BancoDados( Context context) {
         super(context, BANCO_LOCALIZACAO, null, VERSAO);
     }
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+    public void onCreate(SQLiteDatabase db) {
 
-        String sql = "CREATE TABLE " + TABELA_LOCALIZACAO + "("
+       /* String sql = "CREATE TABLE " + TABELA_LOCALIZACAO + "("
                 + COLUNA_CODIGO + " INTEGER PRIMARY KEY,"
                 + COLUNA_LATITUDE + " DOUBLE,"
                 + COLUNA_LONGITUDE + " DOUBLE,"
                 + COLUNA_DATA + "STRING,"
                 + COLUNA_VELOCIDADE + "DOUBLE"
+                +")";*/
+
+        String sql = "CREATE TABLE "+TABELA+"("
+                + CODIGO+" integer primary key autoincrement,"
+                + LATITUDE+" text,"
+                + LONGITUDE+" text,"
+                + DATA+" text,"
+                + VELOCIDADE +" text"
                 +")";
 
         db.execSQL(sql);
+
+        //String sql = "CREATE TABLE "+TABELA+"(" + ID + " integer primary key autoincrement," + NOME + " text,"+ ID_FILME + " text," + ID_USER + " text)";
+        //db.execSQL(sql);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABELA_LOCALIZACAO);
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABELA);
         onCreate(db);
     }
 
 
     // CRUD ABAIXO
     
-    /*void addLocalizacao(Localizacao localizacao) {
+    /*public void addLocalizacao(Localizacao localizacao) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -61,8 +71,9 @@ public class BancoDados extends SQLiteOpenHelper {
         values.put(COLUNA_DATA, localizacao.getData());
         values.put(COLUNA_VELOCIDADE, localizacao.getVelocidade());
 
-        db.insert(TABELA_LOCALIZACAO, null, values);
+       db.insert(TABELA_LOCALIZACAO, null, values);
         db.close();
+
     }*/
 
 
