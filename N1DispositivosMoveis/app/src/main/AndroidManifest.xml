@@ -17,9 +17,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.N1DispositivosMoveis">
-        <activity
-            android:name=".TelaDraw"
-            android:exported="false" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -36,30 +33,28 @@
             android:name=".MapsActivity2"
             android:label="@string/title_activity_maps2"></activity>
         <activity android:name=".visualizar" />
+
+
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".TelaGNSSActivity"
+            android:label=""
             android:screenOrientation="portrait" />
         <activity
             android:name=".TelaHis"
             android:label="@string/titulovazio"
             android:screenOrientation="portrait" />
-<<<<<<< HEAD
-=======
+
         <activity
             android:name=".LocationManagerActivity"
             android:label="@string/titulovazio"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".TelaGNSSView"
-            android:label="@string/titulovazio"
-            android:screenOrientation="portrait" />
->>>>>>> TelaGNSS
-        <activity
-            android:name=".TelaGNSS"
-            android:exported="true"
-            android:label="@string/titulovazio"
-            android:screenOrientation="portrait" />
+
+
         <activity
             android:name=".TelaNavegacao"
             android:exported="true"

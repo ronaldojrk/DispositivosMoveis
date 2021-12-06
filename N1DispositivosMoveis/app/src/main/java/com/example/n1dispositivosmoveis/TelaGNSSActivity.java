@@ -2,7 +2,9 @@ package com.example.n1dispositivosmoveis;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.GnssStatus;
 import android.location.Location;
 import android.location.LocationListener;
@@ -27,15 +29,218 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
         private static final int REQUEST_LOCATION = 2;
         private TelaGNSSView gnssView;
 
+    Button btnTodos,btn1,btn5,btn6 ,btn3,btn7,btn4,btn2, btn0 ;
+
+
+
+                 // Beidou 5
+
+                            //  Galileo 6:
+
+                            //  Glonass 3:
+
+                            // Ba GPS .1:
+
+                            //  IRNSS. 7:
+
+                            //QZSS. 4:
+
+                            // SBAS. 2:
+
+                            // desconhecido.  0
+
+
+
+
     @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_tela_draw);
             gnssView=findViewById(R.id.gnssDraw1);
+
+        Button btnVoltar  = findViewById(R.id.btnVoltarDraw);
+
+        btnTodos  = findViewById(R.id.btnTodos);
+         btn1  = findViewById(R.id.btncontela1);
+
+         btn5  = findViewById(R.id.btn5);
+
+         btn6  = findViewById(R.id.btn6);
+
+         btn3  = findViewById(R.id.btn3);
+
+         btn7  = findViewById(R.id.btn7);
+
+        btn4  = findViewById(R.id.btn4);
+
+       btn2  = findViewById(R.id.btn2);
+
+         btn0  = findViewById(R.id.btn0);
+
+        clean();
+
+
+
+
+
+        // Beidou 5
+
+        //  Galileo 6:
+
+        //  Glonass 3:
+
+        // Ba GPS .1:
+
+        //  IRNSS. 7:
+
+        //QZSS. 4:
+
+        // SBAS. 2:
+
+        // desconhecido.  0
             locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
             locationProvider = locationManager.getProvider(LocationManager.GPS_PROVIDER);
             ativaGNSS();
-        }
+
+
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+
+        btnTodos.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+
+                SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
+                editor.putString("Opt","todos");
+                editor.apply();
+                clean();
+                btnTodos.setBackgroundColor(Color.YELLOW);
+
+                //Toast.makeText(getApplicationContext(),"Status do historico: desativado", Toast.LENGTH_LONG).show();
+
+
+
+
+            }
+        });
+
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
+                editor.putString("Opt","1");
+                editor.apply();
+                clean();
+                btn1.setBackgroundColor(Color.YELLOW);
+            }
+        });
+
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
+                editor.putString("Opt","5");
+                editor.apply();
+                clean();
+                btn5.setBackgroundColor(Color.YELLOW);
+            }
+        });
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
+                editor.putString("Opt","6");
+                editor.apply();
+                clean();
+                btn6.setBackgroundColor(Color.YELLOW);
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
+                editor.putString("Opt","3");
+                editor.apply();
+                clean();
+                btn3.setBackgroundColor(Color.YELLOW);
+            }
+        });
+
+        btn7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
+                editor.putString("Opt","7");
+                editor.apply();
+                clean();
+                btn7.setBackgroundColor(Color.YELLOW);
+            }
+        });
+
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
+                editor.putString("Opt","4");
+                editor.apply();
+                clean();
+                btn4.setBackgroundColor(Color.YELLOW);
+            }
+        });
+
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
+                editor.putString("Opt","2");
+                editor.apply();
+                clean();
+                btn2.setBackgroundColor(Color.YELLOW);
+            }
+        });
+
+
+        btn0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
+                editor.putString("Opt","0");
+                editor.apply();
+                clean();
+                btn0.setBackgroundColor(Color.YELLOW);
+            }
+        });
+
+    }
+
+
+   private void clean (){
+
+       btn1.setBackgroundColor(Color.BLUE);
+       btnTodos.setBackgroundColor(Color.BLUE);
+       btn5.setBackgroundColor(Color.BLUE);
+       btn6.setBackgroundColor(Color.BLUE);
+       btn3.setBackgroundColor(Color.BLUE);
+       btn7.setBackgroundColor(Color.BLUE);
+       btn4.setBackgroundColor(Color.BLUE);
+       btn2.setBackgroundColor(Color.BLUE);
+       btn0.setBackgroundColor(Color.BLUE);
+
+
+
+   }
+
+
 
         @Override
         protected void onStop() {
@@ -106,7 +311,10 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
 
             @Override
             public void onSatelliteStatusChanged(@NonNull GnssStatus status) {
-                gnssView.onSatelliteStatusChanged(status);
+
+                SharedPreferences prefs = getSharedPreferences("projeto", MODE_PRIVATE);
+                String opc = prefs.getString("Opt", "todos");
+                gnssView.onSatelliteStatusChanged(status,opc);
                 gnssView.invalidate();
 
             }

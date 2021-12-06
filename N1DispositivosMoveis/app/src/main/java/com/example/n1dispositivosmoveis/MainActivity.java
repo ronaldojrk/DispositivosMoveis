@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonGNSS = findViewById(R.id.buttonGNSS);
         Button buttonHis = findViewById(R.id.buttonHis);
         Button buttonNav = findViewById(R.id.buttonNav);
+        Button btnSatelite = findViewById(R.id.btnSatelite);
 
         buttonConfig.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         buttonGNSS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),TelaGNSS.class);
+                Intent intent = new Intent(getApplicationContext(),TelaGNSSActivity.class);
                 startActivity(intent);
                 // finish();
             }
@@ -69,6 +70,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),TelaHis.class);
+                startActivity(intent);
+                // finish();
+            }
+        });
+
+
+        btnSatelite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),LocationManagerActivity.class);
                 startActivity(intent);
                 // finish();
             }

@@ -44,9 +44,9 @@
 
     <string name="btn_Voltar">Voltar</string>
     <string name="title_activity_maps">Map</string>
-<<<<<<< HEAD
+
     <string name="title_activity_maps2">Map</string>
-=======
+
     <string name="voltar">Voltar</string>
 
     //locationManager
@@ -54,5 +54,4 @@
     <string name="tv_gnssInfo">Info GNSS</string>
     <string name="tv_locationInfo">Info Location</string>
 
->>>>>>> TelaGNSS
 </resources>
