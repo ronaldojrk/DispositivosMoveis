@@ -9,6 +9,7 @@ import android.location.GnssStatus;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +29,7 @@ public class TelaGNSSView extends View {
     public static void onSatelliteStatusChanged(GnssStatus status,String opc) {
         newStatus=status;
         opcs=opc;
+
     }
 
     @Override
@@ -65,6 +67,12 @@ public class TelaGNSSView extends View {
         // configura o pincel para desenhar os satélites
         //paint.setColor(Color.RED);
         paint.setStyle(Paint.Style.FILL);
+
+        //contando satélites
+        TextView tv_gnss=(TextView)findViewById(R.id.tv_gnssInfo);
+        String mens="Dados do Sitema de Posicionamento\n";
+
+
 
 
 

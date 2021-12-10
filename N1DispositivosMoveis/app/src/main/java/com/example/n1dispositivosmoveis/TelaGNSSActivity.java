@@ -58,7 +58,6 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
             setContentView(R.layout.activity_tela_draw);
             gnssView=findViewById(R.id.gnssDraw1);
 
-        Button btnVoltar  = findViewById(R.id.btnVoltarDraw);
 
         btnTodos  = findViewById(R.id.btnTodos);
          btn1  = findViewById(R.id.btncontela1);
@@ -103,12 +102,6 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
             ativaGNSS();
 
 
-        btnVoltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
 
 
         btnTodos.setOnClickListener(new View.OnClickListener() {
