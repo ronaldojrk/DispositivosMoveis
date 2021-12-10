@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -30,6 +31,7 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
         private TelaGNSSView gnssView;
 
     Button btnTodos,btn1,btn5,btn6 ,btn3,btn7,btn4,btn2, btn0 ;
+    TextView cont;
 
 
 
@@ -79,6 +81,14 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
         clean();
 
 
+       /* SharedPreferences prefs = getSharedPreferences("projeto", MODE_PRIVATE);
+        int opc = prefs.getInt("SatelliteCount", 0);*/
+
+       cont = findViewById(R.id.numeroSat);
+
+       // cont.setText(opc);
+
+
 
 
 
@@ -111,7 +121,7 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
             public void onClick(View v) {
 
                 SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
-                editor.putString("Opt","todos");
+                editor.putString("Sat","todos");
                 editor.apply();
                 clean();
                 btnTodos.setBackgroundColor(Color.YELLOW);
@@ -129,7 +139,7 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
-                editor.putString("Opt","1");
+                editor.putString("Sat","1");
                 editor.apply();
                 clean();
                 btn1.setBackgroundColor(Color.YELLOW);
@@ -140,7 +150,7 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
-                editor.putString("Opt","5");
+                editor.putString("Sat","5");
                 editor.apply();
                 clean();
                 btn5.setBackgroundColor(Color.YELLOW);
@@ -150,7 +160,7 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
-                editor.putString("Opt","6");
+                editor.putString("Sat","6");
                 editor.apply();
                 clean();
                 btn6.setBackgroundColor(Color.YELLOW);
@@ -161,7 +171,7 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
-                editor.putString("Opt","3");
+                editor.putString("Sat","3");
                 editor.apply();
                 clean();
                 btn3.setBackgroundColor(Color.YELLOW);
@@ -172,7 +182,7 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
-                editor.putString("Opt","7");
+                editor.putString("Sat","7");
                 editor.apply();
                 clean();
                 btn7.setBackgroundColor(Color.YELLOW);
@@ -183,7 +193,7 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
-                editor.putString("Opt","4");
+                editor.putString("Sat","4");
                 editor.apply();
                 clean();
                 btn4.setBackgroundColor(Color.YELLOW);
@@ -195,7 +205,7 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
-                editor.putString("Opt","2");
+                editor.putString("Sat","2");
                 editor.apply();
                 clean();
                 btn2.setBackgroundColor(Color.YELLOW);
@@ -207,7 +217,7 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = getSharedPreferences("projeto", MODE_PRIVATE).edit();
-                editor.putString("Opt","0");
+                editor.putString("Sat","0");
                 editor.apply();
                 clean();
                 btn0.setBackgroundColor(Color.YELLOW);
@@ -306,7 +316,13 @@ public class TelaGNSSActivity extends AppCompatActivity implements LocationListe
             public void onSatelliteStatusChanged(@NonNull GnssStatus status) {
 
                 SharedPreferences prefs = getSharedPreferences("projeto", MODE_PRIVATE);
-                String opc = prefs.getString("Opt", "todos");
+                String opc = prefs.getString("Sat", "todos");
+
+
+
+
+
+                cont.setText(""+status.getSatelliteCount());
                 gnssView.onSatelliteStatusChanged(status,opc);
                 gnssView.invalidate();
 

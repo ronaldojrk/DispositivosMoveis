@@ -1,7 +1,6 @@
 package com.example.n1dispositivosmoveis;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -11,15 +10,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class TelaGNSSView extends View {
     private static GnssStatus newStatus;
-    private static String opcs;
+    private static String constellation;
     private int r;
     private int height,width;
-
 
 
 
@@ -28,7 +25,7 @@ public class TelaGNSSView extends View {
     }
     public static void onSatelliteStatusChanged(GnssStatus status,String opc) {
         newStatus=status;
-        opcs=opc;
+        constellation =opc;
 
     }
 
@@ -82,7 +79,7 @@ public class TelaGNSSView extends View {
 
             for(int i=0;i<newStatus.getSatelliteCount();i++) {
 
-                if (opcs == "todos") {
+                if (constellation == "todos") {
 
 
                 if (newStatus.getCn0DbHz(i) >= 0 && newStatus.getCn0DbHz(i) < 20) {
@@ -111,7 +108,12 @@ public class TelaGNSSView extends View {
                 float el = newStatus.getElevationDegrees(i);
                 float x = (float) (r * Math.cos(Math.toRadians(el)) * Math.sin(Math.toRadians(az)));
                 float y = (float) (r * Math.cos(Math.toRadians(el)) * Math.cos(Math.toRadians(az)));
-                canvas.drawCircle(computeXc(x), computeYc(y), 10, paint);
+
+                if(newStatus.usedInFix(i)){
+                    canvas.drawCircle(computeXc(x), computeYc(y), 20, paint);
+                }else{
+                    canvas.drawCircle(computeXc(x), computeYc(y), 10, paint);
+                }
 
                 //canvas.draw;
                 paint.setTextAlign(Paint.Align.LEFT);
@@ -121,19 +123,14 @@ public class TelaGNSSView extends View {
 
 
             }else{
-                Log.i("teste",String.valueOf(newStatus.getConstellationType(i)));
-                    Log.i("teste2",opcs);
 
 
                     String cons =String.valueOf(newStatus.getConstellationType(i));
-                    String ode =opcs;
-                    cons.equals(opcs);
-
-                    Log.i("teste2", "tes   "+cons.equals(opcs));
+                    //cons.equals(constellation);
 
 
-                    if(cons.equals(opcs)){
-                        Log.i("teste3","passei");
+
+                    if(cons.equals(constellation)){
                         if (newStatus.getCn0DbHz(i) >= 0 && newStatus.getCn0DbHz(i) < 20) {
                             paint.setColor(Color.RED);
                         } else {
@@ -160,7 +157,13 @@ public class TelaGNSSView extends View {
                         float el = newStatus.getElevationDegrees(i);
                         float x = (float) (r * Math.cos(Math.toRadians(el)) * Math.sin(Math.toRadians(az)));
                         float y = (float) (r * Math.cos(Math.toRadians(el)) * Math.cos(Math.toRadians(az)));
-                        canvas.drawCircle(computeXc(x), computeYc(y), 10, paint);
+
+
+                        if(newStatus.usedInFix(i)){
+                            canvas.drawCircle(computeXc(x), computeYc(y), 20, paint);
+                        }else{
+                            canvas.drawCircle(computeXc(x), computeYc(y), 10, paint);
+                        }
 
                         //canvas.draw;
                         paint.setTextAlign(Paint.Align.LEFT);
@@ -169,7 +172,7 @@ public class TelaGNSSView extends View {
                         canvas.drawText(satID, computeXc(x) + 10, computeYc(y) + 10, paint);
 
                     }else{
-                        Log.i("teste3","passei");
+                      ///  Log.i("teste3","passei");
                     }
 
                 }

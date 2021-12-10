@@ -12,9 +12,9 @@
         android:layout_width="120dp"
         android:layout_height="80dp"
         android:layout_marginBottom="452dp"
+        android:drawableLeft="@drawable/ic_baseline_build_24"
         android:text="@string/btn_Config"
         android:textSize="12dp"
-        android:drawableLeft="@drawable/ic_baseline_build_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.233"
@@ -27,9 +27,9 @@
         android:layout_width="120dp"
         android:layout_height="80dp"
         android:layout_marginBottom="452dp"
+        android:drawableLeft="@drawable/ic_baseline_explore_24"
         android:text="@string/btn_Navegacao"
         android:textSize="12dp"
-        android:drawableLeft="@drawable/ic_baseline_explore_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.769"
@@ -42,8 +42,8 @@
         android:layout_width="120dp"
         android:layout_height="80dp"
         android:layout_marginBottom="352dp"
-        android:text="@string/btn_Historico"
         android:drawableLeft="@drawable/ic_baseline_restore_24"
+        android:text="@string/btn_Historico"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,9 +57,9 @@
         android:layout_width="120dp"
         android:layout_height="80dp"
         android:layout_marginBottom="352dp"
+        android:drawableLeft="@drawable/ic_baseline_location_on_24"
         android:text="@string/btn_Gnss"
         android:textSize="12dp"
-        android:drawableLeft="@drawable/ic_baseline_location_on_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.769"
@@ -69,15 +69,16 @@
 
     <Button
         android:id="@+id/buttonCredi"
-        android:layout_width="192dp"
-        android:layout_height="52dp"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="280dp"
-        android:text="@string/btn_Credito"
         android:drawableLeft="@drawable/ic_baseline_people_24"
+        android:text="@string/btn_Credito"
+
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.785"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -110,14 +111,15 @@
 
     <Button
         android:id="@+id/btnSatelite"
-        android:layout_width="112dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="584dp"
+
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="280dp"
         android:text="Info"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.225"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
